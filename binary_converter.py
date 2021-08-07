@@ -1,10 +1,9 @@
-a = ""
-number = int(input("type in any number: "))
-number = bin(number)
-for num in list(number)[2:]:
-    a += str(num)
-
-print("The binary equivalent is:", a)
+def converter2(number):
+    a = ""
+    number = bin(number)
+    for num in list(number)[2:]:
+        a += str(num)
+    return a
 
 
 
