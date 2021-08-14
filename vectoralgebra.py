@@ -30,24 +30,21 @@ class VectorAlg:
 
     def inner_product(self,v):
         product = [x*y for x,y in zip(self.coordinates,v.coordinates)]
-        return product
+        return sum(product)
     
     def angle(self,v):
-        unit1 = self.direction()
-        unit2 = v.direction()
-        print(unit1,unit2)
-        inn_prod = unit1.inner_product(unit2)
-        return acos(inn_prod)
-
-
-
-
+        dir1 = self.direction()
+        dir2 = v.direction()
+        product = dir1.inner_product(dir2)
+        print(product)
+        return None
 
 
 v = VectorAlg([2,3])
 w = VectorAlg([9,2])
-print(v.inner_product(w))
-print(v.direction())
-print(v.magnitude())
-print(v.scalar(4))
-print(v.add(w))
+print(v.angle(w))
+# print(v.inner_product(w))
+# print(v.direction())
+# print(v.magnitude())
+# print(v.scalar(4))
+# print(v.add(w))
