@@ -1,6 +1,6 @@
-from math import sqrt
-class VectorsAlg:
-
+from math import sqrt,acos
+class VectorAlg:
+    
 
     def __init__(self,coordinates):
         self.coordinates = coordinates
@@ -22,16 +22,32 @@ class VectorsAlg:
 
     def magnitude(self):
         mag = [x*x for x in self.coordinates]
-        sum = 0
-        for i in mag:
-            sum += i
-        return round(sqrt(sum), 3)
+        return round(sqrt(sum(mag)), 3)
+
+    def direction(self):
+        mag = self.magnitude()
+        return self.scalar(1/mag)
+
+    def inner_product(self,v):
+        product = [x*y for x,y in zip(self.coordinates,v.coordinates)]
+        return product
+    
+    def angle(self,v):
+        unit1 = self.direction()
+        unit2 = v.direction()
+        print(unit1,unit2)
+        inn_prod = unit1.inner_product(unit2)
+        return acos(inn_prod)
 
 
 
 
-v = VectorsAlg([2,3])
-w = VectorsAlg([9,2])
+
+
+v = VectorAlg([2,3])
+w = VectorAlg([9,2])
+print(v.inner_product(w))
+print(v.direction())
 print(v.magnitude())
 print(v.scalar(4))
 print(v.add(w))
