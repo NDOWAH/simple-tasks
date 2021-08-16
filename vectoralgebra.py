@@ -50,11 +50,34 @@ class VectorAlg:
         or self.angle_with(v)==0
         or self.angle_with(v) == pi)
 
+    def is_zero(self,tolerance=1e-10):
+        return self.magnitude < tolerance
+    
+    def projection(self,v):
+        dir = self.direction
+        proj = v.scalar((self.direction()))
+        return proj
 
+    def cross_prod(self, v):
+        x_1,y_1, z_1 = self.coordinates()
+        x_2,y_2,z_2 = self.coordinates()
+        new_coordinates = [y_1*z_2 - z_1*y_2,
+                           -(x_1*z_2 - x_2*z_1),
+                           x_1*y_2 - y_1*x_1]
+        return VectorAlg(new_coordinates)
+    
+    def area_of_parallel0gram(self,v):
+        vector = self.cross_prod()
+        return vector.magnitude()
+
+    
+    def area_of_triangle(self,v):
+        return self.area_of_parallelogram(v)/ Decimal("2.0")
 
 
 v = VectorAlg([9,3])
 w = VectorAlg([9,2])
+print(v.projection(w))
 print("the angle is: ", v.dot(w))
 # print(v.angle(w) 
 # print(v.magnitude())
