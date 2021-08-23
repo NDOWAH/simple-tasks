@@ -1,7 +1,6 @@
 def nth_root(number,root):
-    result = (number)**1/root
-    return (f"The result is:{result}")
+    result = (number)**(1/root)
+    return ("The result is:{0:.3f}".format(result))
 
+print(nth_root(7,3))
 
-
-print(nth_root(5,2))
