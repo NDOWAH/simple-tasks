@@ -8,14 +8,16 @@ def decimal_binary(number):
         except ValueError:
             print("The number you inputed is not in base 2, numbers in base 2 are in zeros and ones only")
             break
-            index = ""
-            for i in enumerate(str(number)):
-                index += str(i)
-                print(digit)
-                new_list = index[::-1]
-                for i in new_list:
-                    print(index)
-                # decimal_number += int(digit)*2**int(i)
-    return (f"The decimal equivalent of {number} is: {decimal_number}")
+        index = ""
+        _list = (list(number))
+        print(_list)
+        break
+    for j in range(0,len(_list),-1):
+        pass
+    for i in _list:
+        decimal = int(i)*2**j
+
+
+
 
 decimal_binary(100)
