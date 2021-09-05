@@ -13,9 +13,8 @@ def decimal_binary(number):
         print(_list)
         break
     for j in range(0,len(_list),-1):
-        pass
-    for i in _list:
-        decimal = int(i)*2**j
+        for i in _list:
+            decimal = int(i)*2**j
 
 
 
